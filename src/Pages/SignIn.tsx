@@ -178,7 +178,8 @@ import 'macro-css';
                         </div>
                     </CardContent>
                     <CardActions>
-                        <Button
+
+                       <Link to="Home"> <Button
                             variant="contained"
                             size="large"
                             color="primary"
@@ -188,6 +189,7 @@ import 'macro-css';
                             Conectează-te
 
                         </Button>
+                        </Link>
                     </CardActions>
 
                 </Card>
