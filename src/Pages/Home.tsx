@@ -1,40 +1,22 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Header from "../Components/Header";
+import Drawer from "../Components/Drawer";
+import styled from "styled-components";
+import React, { useState } from "react";
 
+const Home: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-function Home() {
-    return (
-<div>
-       <Link to="/"> 
-       <Button
-       
-       variant="contained"
-       size="large"
-       color="primary"> Go to SignIn</Button>
-      </Link>
-        </div>
-    );
-}
+  const toggLeVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  return (
+    <>
+      <Header toggLeVisibility={toggLeVisibility} />
+      <Drawer isVisible={isVisible} toggLeVisibility={toggLeVisibility} />
+    </>
+  );
+};
+
 export default Home;
-
-
-
-
-
-
-
-
-
-
-
-// export interface IHomepageProps {};
-
-// const HomePage: React.FunctionComponent<IHomepageProps> = (props) => {
-//     return <div>
-//        <Link to="SignIn"> 
-//        <Button> Conectează-te</Button>
-//       </Link>
-//         </div>
-// };
-// export default HomePage;
