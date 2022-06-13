@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -88,6 +87,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
           <li className="mt-20 mr-20 cu-p ">
             <img
               className="mr-10 mt-10"
+              onClick={toggLeVisibility}
               width={20}
               height={20}
               src="/images/menu.svg"
@@ -97,6 +97,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
           </li>
           <li className="mt-20 cu-p">
             <img
+              
               className="mr-10 mt-10"
               width={20}
               height={20}

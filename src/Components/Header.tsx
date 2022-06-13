@@ -53,11 +53,7 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
         <span> Profil</span>
       </li>
     </ul>
-  
-
-   
   </header>
- 
 );
 
 export default Header;
