@@ -39,11 +39,10 @@ const MenuLabel = styled.label`
   text-transform: upercase;
   font-size: 20px;
   font-weight: bold;
-  color: ;
 `;
 
 const ListMenu = styled.li`
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
   padding: 50;
 `;
@@ -86,13 +85,48 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
       </MenuTab>
       <ListMenu>
         <ul className="clear">
-          <li className="mt-20 cu-p ">Ascunde</li>
+          <li className="mt-20 mr-20 cu-p ">
+            <img
+              className="mr-10 mt-10"
+              width={20}
+              height={20}
+              src="/images/menu.svg"
+              alt="closetype"
+            />
+            Ascunde
+          </li>
+          <li className="mt-20 cu-p">
+            <img
+              className="mr-10 mt-10"
+              width={20}
+              height={20}
+              src="/images/Panou.svg"
+              alt="closetype"
+            />
+            Panou Control
+          </li>
 
-          <li className="mt-20 cu-p">Panou Control</li>
+          <li className="mt-20 cu-p">
+            <img
+              className="mr-10 mt-10"
+              width={20}
+              height={20}
+              src="/images/users.svg"
+              alt="closetype"
+            />
+            Utilizatori
+          </li>
 
-          <li className="mt-20 cu-p">Utilizatori</li>
-
-          <li className="mt-20 cu-p">Întrebări frecvente</li>
+          <li className="mt-20 cu-p">
+            <img
+              className="mr-10 mt-10"
+              width={20}
+              height={20}
+              src="/images/question.svg"
+              alt="closetype"
+            />
+            Întrebări frecvente
+          </li>
         </ul>
       </ListMenu>
     </MenuDrawerWrapper>
