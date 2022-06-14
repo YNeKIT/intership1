@@ -19,8 +19,7 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
       </div>
       <Link to="/">
         {" "}
-        <img
-          className="mr-20 cu-p d-flex"
+        <img className="mr-10 cu-p"
           width={40}
           height={40}
           src="/images/cardano-ada.svg"

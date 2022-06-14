@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 interface isVisbleDiv {
   isVisible: boolean;
 }
@@ -86,7 +85,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
       </MenuTab>
       <ListMenu>
         <ul className="clear">
-          <li onClick={toggLeVisibility} className="mt-20 mr-20 cu-p ">
+          <li onClick={toggLeVisibility} className="listmenu">
             <img
               className="mr-10 mt-10"
               width={20}
@@ -96,7 +95,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             />
             Ascunde
           </li>
-          <li className="mt-20 cu-p">
+          <li className="listmenu">
             <img
               className="mr-10 mt-10"
               width={20}
@@ -107,7 +106,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             Panou Control
           </li>
 
-          <li className="mt-20 cu-p">
+          <li className="listmenu">
             <img
               className="mr-10 mt-10"
               width={20}
@@ -118,7 +117,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             Utilizatori
           </li>
 
-          <li className="mt-20 cu-p">
+          <li className="listmenu">
             <img
               className="mr-10 mt-10"
               width={20}
@@ -129,18 +128,17 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             Întrebări frecvente
           </li>
           <Link to="/">
-          <li className="mt-20 cu-p">
-            <img
-              className="logout mr-10 "
-              width={25}
-              height={25}
-              src="/images/logout.svg"
-              alt="closetype"
-            />
-            Log Out
-          </li>
+            <li className="listmenu">
+              <img
+                className="logout mr-10 "
+                width={25}
+                height={25}
+                src="/images/logout.svg"
+                alt="closetype"
+              />
+              Log Out
+            </li>
           </Link>
-
         </ul>
       </ListMenu>
     </MenuDrawerWrapper>

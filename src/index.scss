@@ -2,6 +2,8 @@ body {
   background-color: aqua;
 }
 
+
+
 .butons {
   display: inline;
   margin-bottom: 5px;
@@ -24,7 +26,8 @@ body {
   transition: 0.4 ease-in-out;
 
   &:hover {
-    background: lightten(#106ead, 5%);
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateY(-5px);
   }
 
   &:active {
@@ -45,6 +48,11 @@ body {
   transition: 0.4 ease-in-out;
   margin-right: 40px;
 
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateY(-5px);
+  }
+
   &:active {
     background: darken(#106ead, 5%);
   }
@@ -63,6 +71,18 @@ body {
   margin-right: 5px;
   margin-left: 30px;
 }
+
+.listmenu {
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateX(5px);
+  }
+}
+
+
 
 $gl-ms: "screen and (max-width: 400px)";
 $gl-xs: "screen and (max-width: 568px)";
