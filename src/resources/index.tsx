@@ -1,0 +1,14 @@
+import React from 'react';
+// export { ReactComponent as Icon3Dots } from './resources/icons/3dots.svg';
+// export { ReactComponent as IconArrow } from './resources/icons/arrow1.svg';
+// export { ReactComponent as IconBell } from './resources/icons/bell.svg';
+// export { ReactComponent as IconCardano } from './resources/icons/cardano-ada.svg';
+// export { ReactComponent as IconClose } from './resources/icons/close.svg';
+// export { ReactComponent as IconFilter } from './resources/icons/filter.svg';
+// export { ReactComponent as IconMenu } from './resources/icons/menu.svg';
+// export { ReactComponent as IconPanou } from './resources/icons/Panou.svg';
+// export { ReactComponent as IconPersoana } from './resources/icons/persona.svg';
+// export { ReactComponent as IconQuestion } from './resources/icons/question.svg';
+// export { ReactComponent as IconSearch } from './resources/icons/search.svg';
+// export { ReactComponent as IconSort } from './resources/icons/sort.svg';
+// export { ReactComponent as IconUsers } from './resources/icons/users.svg';

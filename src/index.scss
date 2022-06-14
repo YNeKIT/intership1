@@ -1,3 +1,174 @@
 body {
-    background-color: aquamarine;
+  background-color: aqua;
+}
+
+.butons {
+  display: inline;
+  margin-bottom: 5px;
+}
+
+.blueButton1 {
+  width: 10%;
+  height: 40px;
+  background: #3c99dc;
+  border-radius: 18px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-left: 51%;
+
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4 ease-in-out;
+
+  &:hover {
+    background: lightten(#106ead, 5%);
+  }
+
+  &:active {
+    background: darken(#106ead, 5%);
+  }
+}
+
+.blueButton2 {
+  width: 10%;
+  height: 40px;
+  background: #3c99dc;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4 ease-in-out;
+  margin-right: 40px;
+
+  &:active {
+    background: darken(#106ead, 5%);
+  }
+}
+
+.blueButton2 {
+  margin-right: 5px;
+}
+
+.searchB {
+  margin-bottom: 6px;
+  border: 1px solid #201f1f;
+  border-radius: 10px;
+  padding: 0 15px;
+  height: 40px;
+  margin-right: 5px;
+  margin-left: 30px;
+}
+
+$gl-ms: "screen and (max-width: 400px)";
+$gl-xs: "screen and (max-width: 568px)";
+$gl-sm: "screen and (max-width: 768px)";
+$gl-md: "screen and (max-width: 1024px)";
+$gl-lg: "screen and (max-width: 1280px)";
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 10%;
+
+  * {
+    position: relative;
+  }
+
+  td,
+  th {
+    padding-left: 8px;
+  }
+
+  thead tr {
+    height: 60px;
+    background: #70b2e8;
+    font-size: 16px;
+  }
+
+  tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #e3f1d5;
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  td,
+  th {
+    text-align: left;
+    &.l {
+      text-align: right;
+    }
+    &.c {
+      text-align: center;
+    }
+    &.r {
+      text-align: center;
+    }
+  }
+}
+
+@media #{$gl-xs} {
+  table {
+    display: block;
+    > *,
+    tr,
+    td,
+    th {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+    tbody tr {
+      height: auto;
+      padding: 8px 0;
+      td {
+        padding-left: 30%;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:before {
+          position: absolute;
+          font-weight: 700;
+          width: 90%;
+          left: 10px;
+          top: 0;
+        }
+
+        &:nth-child(1):before {
+          content: "Code";
+        }
+        &:nth-child(2):before {
+          content: "Stock";
+        }
+        &:nth-child(3):before {
+          content: "Cap";
+        }
+        &:nth-child(4):before {
+          content: "Inch";
+        }
+        &:nth-child(5):before {
+          content: "Box Type";
+        }
+      }
+    }
+  }
+}
+
+blockquote {
+  color: white;
+  text-align: center;
 }

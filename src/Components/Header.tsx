@@ -50,7 +50,7 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
           src="/images/persona.svg"
           alt="users"
         />
-        <span> Profil</span>
+        <span> Profile</span>
       </li>
     </ul>
   </header>
