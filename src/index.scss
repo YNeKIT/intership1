@@ -2,14 +2,31 @@ body {
   background-color: aqua;
 }
 
+.closebtn {
+  transition: transform 250ms ease-in-out;
+  transform-origin: 50% 50%;
+}
 
+.tablebtn {
+  
+  border-radius: 10px;
+  color: #3c99dc;
+  border: 0, 5;
+  border-color: #106ead;
+  cursor: pointer;
+  margin-left: 4px;
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateY(-3px);
+  }
+}
 
 .butons {
   display: inline;
-  margin-bottom: 5px;
+  margin-bottom:px;
 }
 
-.blueButton1 {
+.blueButtonfil {
   width: 10%;
   height: 40px;
   background: #3c99dc;
@@ -35,7 +52,7 @@ body {
   }
 }
 
-.blueButton2 {
+.blueButtonUniv {
   width: 10%;
   height: 40px;
   background: #3c99dc;
@@ -46,7 +63,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: 0.4 ease-in-out;
-  margin-right: 40px;
+  margin-right: 5px;
 
   &:hover {
     box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
@@ -56,10 +73,6 @@ body {
   &:active {
     background: darken(#106ead, 5%);
   }
-}
-
-.blueButton2 {
-  margin-right: 5px;
 }
 
 .searchB {
@@ -82,8 +95,6 @@ body {
   }
 }
 
-
-
 $gl-ms: "screen and (max-width: 400px)";
 $gl-xs: "screen and (max-width: 568px)";
 $gl-sm: "screen and (max-width: 768px)";
@@ -96,7 +107,7 @@ table {
   background: white;
   border-radius: 6px;
   overflow: hidden;
-  width: 100%;
+  width: 98%;
   margin-left: 15px;
   margin-right: 10%;
 
@@ -154,6 +165,7 @@ table {
     tbody tr {
       height: auto;
       padding: 8px 0;
+
       td {
         padding-left: 30%;
         margin-bottom: 12px;
@@ -168,21 +180,6 @@ table {
           top: 0;
         }
 
-        &:nth-child(1):before {
-          content: "Code";
-        }
-        &:nth-child(2):before {
-          content: "Stock";
-        }
-        &:nth-child(3):before {
-          content: "Cap";
-        }
-        &:nth-child(4):before {
-          content: "Inch";
-        }
-        &:nth-child(5):before {
-          content: "Box Type";
-        }
       }
     }
   }

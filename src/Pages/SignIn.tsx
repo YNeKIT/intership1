@@ -186,7 +186,6 @@ const SignIn = () => {
               variant="contained"
               size="large"
               color="primary"
-              
               className={classes.loginBtn}
               onClick={handleLogin}
               disabled={state.isButtonDisabled}
