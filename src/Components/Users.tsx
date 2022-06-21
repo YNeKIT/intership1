@@ -1,14 +1,19 @@
 import { Modal } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modali } from "../modalW/modali";
 import data from "../Server/data.json";
 import { nanoid } from "nanoid";
+import ReactPaginate from "react-paginate";
+import axios from "axios";
+import Pagination from "./Pagination";
 
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModal = () => setModalState(!isModalOpen);
+  const [query, setQuery] = useState("");
 
   const [contacts, setContacts] = useState(data);
+
   const [addFormData, setAddFormData] = useState({
     fullname: "",
     idnp: "",
@@ -46,14 +51,24 @@ function Users() {
     setContacts(newContacts);
   };
 
-  const [currentPage, SetCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(10);
-
   const handleServiceRemouve = (index: any) => {
     const list = [...contacts];
     list.splice(index, 1);
     setContacts(list);
   };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [contactsPerPage, setContactsPerPage] = useState(10);
+
+  const indexOfLastContact = currentPage * contactsPerPage;
+  const indexOfFirstContact = indexOfLastContact - contactsPerPage;
+  const currentContacts = contacts.slice(
+    indexOfFirstContact,
+    indexOfLastContact
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -66,7 +81,11 @@ function Users() {
           src="/images/search.svg "
           alt="sort"
         />
-        <input className="searchB" placeholder="Searching..." />
+        <input
+          className="searchB"
+          placeholder="Searching..."
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <div className="butons">
           <button className="blueButtonfil">
             <img
@@ -114,51 +133,61 @@ function Users() {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact) => (
-            <tr>
-              <td className="fullname">
-                <img
-                  className="iconutil"
-                  width={20}
-                  height={20}
-                  src="/images/usericon.svg "
-                  alt="plus"
-                />
-                {contact.fullname}
-              </td>
-              <td>{contact.idnp}</td>
-              <td>{contact.email}</td>
-              <td>{contact.phone}</td>
-              <td>{contact.function}</td>
-              <td>{contact.rol}</td>
+          {currentContacts
+            .filter((contacts) =>
+              contacts.fullname.toLowerCase().includes(query)
+            )
 
-              <td>
-                <button className="tablebtn">
+            .map((contact) => (
+              <tr key={contact.id}>
+                <td className="fullname">
                   <img
-                    width={15}
-                    height={15}
-                    src="/images/heart.svg"
-                    alt="closetype"
+                    className="iconutil"
+                    width={20}
+                    height={20}
+                    src="/images/usericon.svg "
+                    alt="plus"
                   />
-                </button>
-                <button
-                  className="tablebtn"
-                  onClick={() => handleServiceRemouve(index)}
-                >
-                  <img
-                    width={15}
-                    height={15}
-                    src="/images/close.svg"
-                    alt="closetype"
-                  />
-                </button>
-              </td>
-            </tr>
-          ))}
+                  {contact.fullname}
+                </td>
+                <td>{contact.idnp}</td>
+                <td>{contact.email}</td>
+                <td>{contact.phone}</td>
+                <td>{contact.function}</td>
+                <td>{contact.rol}</td>
+
+                <td>
+                  <button className="tablebtn">
+                    <img
+                      width={15}
+                      height={15}
+                      src="/images/heart.svg"
+                      alt="closetype"
+                    />
+                  </button>
+                  <button
+                    className="tablebtn"
+                    onClick={() => handleServiceRemouve(index)}
+                  >
+                    <img
+                      width={15}
+                      height={15}
+                      src="/images/close.svg"
+                      alt="closetype"
+                    />
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
+      <Pagination
+        contactsPerPage={contactsPerPage}
+        totalContacts={contacts.length}
+        paginate={paginate}
+      />
 
-      <form onSubmit={handleAddFormSubmit} className="   mt-20 ml-40">
+      {/* <form onSubmit={handleAddFormSubmit} className="   mt-20 ml-40">
         <input
           className="modinput"
           required
@@ -202,7 +231,7 @@ function Users() {
           onChange={handleAddFormChange}
         />
         <button className="modalbtn  ">submit</button>
-      </form>
+      </form> */}
       <Modali title={":)"} isOpen={isModalOpen} onClose={toggleModal} />
     </>
   );

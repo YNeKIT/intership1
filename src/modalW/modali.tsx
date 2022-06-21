@@ -6,13 +6,17 @@ import Users from "../Components/Users";
 
 
 interface ModaliProps {
-  title: string;
-  isOpen: boolean;
+  title: any;
+  isOpen: any;
   onClose: () => void;
+  
+ 
 }
 
 
-export const Modali: React.FC<ModaliProps> = ({isOpen, onClose}) => {
+export const Modali: React.FC<ModaliProps> = ({isOpen, onClose, }
+  
+  ) => {
   const outsideRef = React.useRef(null);
 
   const handleCloseOnOverlay = (
@@ -38,45 +42,52 @@ export const Modali: React.FC<ModaliProps> = ({isOpen, onClose}) => {
         <div className={"modal__content"}></div>
         <div>
           <div className="moddas">
+            <form>
             <input
               className="modinput"
               required
               name="name"
               placeholder="Numele"
-             
+            
             />
             <input
               className="modinput"
               required
               name="idnp"
               placeholder="Idnp"
+             
             />
             <input
               className="modinput"
               required
               name="email"
               placeholder="Email"
+            
             />
             <input
               className="modinput"
               required
               name="telefon"
               placeholder="telefon"
+             
             />
             <input
               className="modinput"
               required
               name="functie"
               placeholder="Functie"
+              
             />
             <input className="modinput" required name="rol" placeholder="Rol" />
             <button onClick={onClose}  className="modalbtn ">submit</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   ) : null;
 };
+
 
 
 export default Modali;

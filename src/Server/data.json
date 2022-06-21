@@ -1,6 +1,7 @@
 [
   {
-    "fullname": "Gheorghe Chan",
+    "id": "1",
+    "fullname": "Robert De Niro",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -8,7 +9,8 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "2",
+    "fullname": "Jack Nicholson",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -16,7 +18,8 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "3",
+    "fullname": "Marlon Brando",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -24,7 +27,8 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "4",
+    "fullname": "Denzel Washington",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -32,7 +36,8 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "5",
+    "fullname": "Tom Hanks",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -40,7 +45,8 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "6",
+    "fullname": "Elizabeth Taylor",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
@@ -48,14 +54,228 @@
     "rol": "Persoana responsabila"
   },
   {
-    "fullname": "Gheorghe Chan",
+    "id": "7",
+    "fullname": "Leonardo DiCaprio",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "8",
+    "fullname": "Cate Blanchett",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "9",
+    "fullname": " Audrey Hepburn",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "10",
+    "fullname": "Viola Davis",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "11",
+    "fullname": "Julia Roberts",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "12",
+    "fullname": "Morgan Freeman",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "13",
+    "fullname": "Johnny Depp",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "14",
+    "fullname": " Julie Andrews",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "15",
+    "fullname": "Halle Berry",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "16",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "17",
+    "fullname": "Will Smith",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "18",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "19",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "20",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "21",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "22",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "23",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "24",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "25",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "26",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "27",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "28",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "29",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "30",
+    "fullname": "Harrison Ford",
+    "idnp": "454585754565",
+    "email": "gheorghe@gmail.com",
+    "phone": "060354899",
+    "function": "șăf",
+    "rol": "Persoana responsabila"
+  },
+  {
+    "id": "31",
+    "fullname": "Harrison Ford",
     "idnp": "454585754565",
     "email": "gheorghe@gmail.com",
     "phone": "060354899",
     "function": "șăf",
     "rol": "Persoana responsabila"
   }
-
-  
-
 ]
