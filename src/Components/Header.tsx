@@ -6,6 +6,7 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ toggLeVisibility }) => (
+  
   <header className="d-flex justify-between align-center p-10">
     <div className="d-flex align-center">
       <div onClick={toggLeVisibility} className="menu ">
@@ -52,7 +53,9 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
         <span> Profile</span>
       </li>
     </ul>
+    
   </header>
+  
 );
 
 export default Header;

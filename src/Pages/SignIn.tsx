@@ -18,12 +18,13 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: `${theme.spacing(0)} auto`,
     },
     loginBtn: {
-      marginTop: theme.spacing(1),
-      flexGrow: 1,
+      marginTop: theme.spacing(2),
+      flexGrow: 3,
+      background: "#a8a8a8",
     },
     header: {
       textAlign: "center",
-      background: "#92b4f4",
+      background: "#a8a8a8",
       color: "#fff",
     },
     card: {
@@ -181,11 +182,9 @@ const SignIn = () => {
         </CardContent>
         <CardActions>
           <Link to="Home">
-            {" "}
             <Button
               variant="contained"
-              size="large"
-              color="primary"
+              color="default"
               className={classes.loginBtn}
               onClick={handleLogin}
               disabled={state.isButtonDisabled}

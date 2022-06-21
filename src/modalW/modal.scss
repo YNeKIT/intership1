@@ -30,11 +30,6 @@
   cursor: auto;
 }
 
-.modal__title {
-  color: #9e25fc;
-  font-size: 30px;
-}
-
 .modal__content {
   margin-top: 30px;
   color: #6b6b6b;
@@ -51,12 +46,40 @@
 }
 
 .modal__close:hover {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
 
 @media screen and (min-width: 800px) {
   .modal__box {
     max-width: 600px;
     margin: 0 30px;
+  }
+}
+
+.moddas {
+  display: grid;
+
+  .modinput {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid #201f1f;
+    width: 100%;
+  }
+
+  .modalbtn {
+    height: 40px;
+    justify-content: center;
+    background: #a8a8a8;
+    border-radius: 18px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4 ease-in-out;
+    width: 100%;
+
+    &:active {
+      background: darken(#106ead, 5%);
+    }
   }
 }

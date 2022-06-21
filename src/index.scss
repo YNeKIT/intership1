@@ -8,13 +8,13 @@ body {
 }
 
 .tablebtn {
-  
   border-radius: 10px;
-  color: #3c99dc;
+  color: #a8a8a8;
   border: 0, 5;
-  border-color: #106ead;
+  border-color: #a8a8a8;
   cursor: pointer;
   margin-left: 4px;
+
   &:hover {
     box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
     transform: translateY(-3px);
@@ -23,13 +23,13 @@ body {
 
 .butons {
   display: inline;
-  margin-bottom:px;
+  margin-bottom: px;
 }
 
 .blueButtonfil {
   width: 10%;
   height: 40px;
-  background: #3c99dc;
+  background: #a8a8a8;
   border-radius: 18px;
   margin-right: 5px;
   margin-bottom: 5px;
@@ -48,14 +48,14 @@ body {
   }
 
   &:active {
-    background: darken(#106ead, 5%);
+    background: darken(#a8a8a8, 5%);
   }
 }
 
 .blueButtonUniv {
   width: 10%;
   height: 40px;
-  background: #3c99dc;
+  background: #a8a8a8;
   border-radius: 18px;
   border: 0;
   color: #fff;
@@ -71,7 +71,7 @@ body {
   }
 
   &:active {
-    background: darken(#106ead, 5%);
+    background: darken(#a8a8a8, 5%);
   }
 }
 
@@ -82,7 +82,7 @@ body {
   padding: 0 15px;
   height: 40px;
   margin-right: 5px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .listmenu {
@@ -107,7 +107,7 @@ table {
   background: white;
   border-radius: 6px;
   overflow: hidden;
-  width: 98%;
+  width: 100%;
   margin-left: 15px;
   margin-right: 10%;
 
@@ -122,7 +122,7 @@ table {
 
   thead tr {
     height: 60px;
-    background: #70b2e8;
+    background: #a8a8a8;
     font-size: 16px;
   }
 
@@ -179,13 +179,35 @@ table {
           left: 10px;
           top: 0;
         }
-
       }
     }
   }
 }
 
+.modinput {
+  border-radius: 30px;
+  width: 10%;
+  height: 20%px;
+}
+
 blockquote {
   color: white;
   text-align: center;
+}
+
+.searchinput {
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.pageName {
+  margin-left: 3.5%;
+  cursor: pointer;
+}
+
+.iconutil {
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  margin-top: 3%;
 }
