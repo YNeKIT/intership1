@@ -178,11 +178,13 @@ const SignIn = () => {
               onChange={handlePasswordChange}
               onKeyPress={handleKeyPress}
             />
+            
           </div>
         </CardContent>
         <CardActions>
           <Link to="Home">
             <Button
+              
               variant="contained"
               color="default"
               className={classes.loginBtn}
@@ -192,6 +194,7 @@ const SignIn = () => {
               Conectează-te
             </Button>
           </Link>
+          
         </CardActions>
       </Card>
     </form>

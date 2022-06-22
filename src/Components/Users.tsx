@@ -1,18 +1,23 @@
-import { Modal } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Modali } from "../modalW/modali";
-import data from "../Server/data.json";
 import { nanoid } from "nanoid";
-import ReactPaginate from "react-paginate";
-import axios from "axios";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModal = () => setModalState(!isModalOpen);
   const [query, setQuery] = useState("");
 
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    axios
+      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts")
+      .then((res) => {
+        setContacts(res.data);
+      });
+  }, []);
 
   const [addFormData, setAddFormData] = useState({
     fullname: "",
@@ -51,14 +56,17 @@ function Users() {
     setContacts(newContacts);
   };
 
-  const handleServiceRemouve = (index: any) => {
-    const list = [...contacts];
-    list.splice(index, 1);
-    setContacts(list);
-  };
+  // const handleServiceRemouve = (index: any) => {
+  //   const list = [...contacts];
+  //   list.splice(index, 1);
+  //   setContacts(list);
+  // };
+
+  const onRemoveItem = (id) =>{
+    setContacts((prev)=> prev.filter(contacts => contacts.id !== id) );
+  }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(false);
   const [contactsPerPage, setContactsPerPage] = useState(10);
 
   const indexOfLastContact = currentPage * contactsPerPage;
@@ -69,6 +77,11 @@ function Users() {
   );
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const onClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <>
@@ -81,11 +94,13 @@ function Users() {
           src="/images/search.svg "
           alt="sort"
         />
+
         <input
           className="searchB"
           placeholder="Searching..."
           onChange={(e) => setQuery(e.target.value)}
         />
+        {/* <h1 className="searchplace">{query ? `Searching for: "${query}"` : '' }</h1> */}
         <div className="butons">
           <button className="blueButtonfil">
             <img
@@ -157,17 +172,23 @@ function Users() {
                 <td>{contact.rol}</td>
 
                 <td>
-                  <button className="tablebtn">
+                  <button onClick={onClickFavorite} className="tablebtn">
                     <img
+                      
                       width={15}
                       height={15}
-                      src="/images/heart.svg"
+                      src={
+                        isFavorite
+                          ? "/images/heardlike.svg"
+                          : "/images/heart.svg"
+                      }
                       alt="closetype"
                     />
                   </button>
                   <button
                     className="tablebtn"
-                    onClick={() => handleServiceRemouve(index)}
+                    // onClick={() => handleServiceRemouve(index)}
+                    onClick={onRemoveItem}
                   >
                     <img
                       width={15}
@@ -230,9 +251,21 @@ function Users() {
           placeholder="Rol"
           onChange={handleAddFormChange}
         />
-        <button className="modalbtn  ">submit</button>
+        <button className="modalbtn">submit</button>
       </form> */}
-      <Modali title={":)"} isOpen={isModalOpen} onClose={toggleModal} />
+      <Modali
+        title={""}
+        isOpen={isModalOpen}
+        onClose={toggleModal}
+        onSubmit={handleAddFormSubmit}
+        onChange={handleAddFormChange}
+        handleAddFormChange={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+        handleAddFormSubmit={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </>
   );
 }

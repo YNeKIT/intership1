@@ -3,21 +3,21 @@ import React from "react";
 import "./modal.scss";
 import Users from "../Components/Users";
 
-
-
 interface ModaliProps {
   title: any;
   isOpen: any;
   onClose: () => void;
-  
- 
+  onSubmit:any;
+  onChange:any
+  handleAddFormChange:() => void;
+  handleAddFormSubmit:() => void;
 }
 
-
-export const Modali: React.FC<ModaliProps> = ({isOpen, onClose, }
-  
-  ) => {
+export const Modali: React.FC<ModaliProps> = ({ isOpen, onClose, handleAddFormChange, handleAddFormSubmit }) => {
   const outsideRef = React.useRef(null);
+
+  
+
 
   const handleCloseOnOverlay = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
@@ -27,7 +27,7 @@ export const Modali: React.FC<ModaliProps> = ({isOpen, onClose, }
     }
   };
 
-
+  
 
   return isOpen ? (
     <div className={"modal"}>
@@ -42,45 +42,52 @@ export const Modali: React.FC<ModaliProps> = ({isOpen, onClose, }
         <div className={"modal__content"}></div>
         <div>
           <div className="moddas">
-            <form>
-            <input
-              className="modinput"
-              required
-              name="name"
-              placeholder="Numele"
-            
-            />
-            <input
-              className="modinput"
-              required
-              name="idnp"
-              placeholder="Idnp"
              
-            />
-            <input
-              className="modinput"
-              required
-              name="email"
-              placeholder="Email"
-            
-            />
-            <input
-              className="modinput"
-              required
-              name="telefon"
-              placeholder="telefon"
-             
-            />
-            <input
-              className="modinput"
-              required
-              name="functie"
-              placeholder="Functie"
-              
-            />
-            <input className="modinput" required name="rol" placeholder="Rol" />
-            <button onClick={onClose}  className="modalbtn ">submit</button>
-            </form>
+            <form onSubmit={handleAddFormSubmit} className="   mt-20 ml-40">
+        <input
+          className="modinput"
+          required
+          name="fullname"
+          placeholder="Numele"
+          onChange={handleAddFormChange}
+        />
+        <input
+          className="modinput"
+          required
+          name="idnp"
+          placeholder="Idnp"
+          onChange={handleAddFormChange}
+        />
+        <input
+          className="modinput"
+          required
+          name="email"
+          placeholder="Email"
+          onChange={handleAddFormChange}
+        />
+        <input
+          className="modinput"
+          required
+          name="phone"
+          placeholder="telefon"
+          onChange={handleAddFormChange}
+        />
+        <input
+          className="modinput"
+          required
+          name="function"
+          placeholder="Functie"
+          onChange={handleAddFormChange}
+        />
+        <input
+          className="modinput"
+          required
+          name="rol"
+          placeholder="Rol"
+          onChange={handleAddFormChange}
+        />
+        <button className="modalbtn">submit</button>
+      </form>
           </div>
         </div>
       </div>
