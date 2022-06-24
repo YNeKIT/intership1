@@ -23,7 +23,7 @@ body {
 
 .butons {
   display: inline;
-  margin-bottom: px;
+  
 }
 
 .blueButtonfil {
@@ -57,7 +57,7 @@ body {
   height: 40px;
   background: #a8a8a8;
   border-radius: 18px;
-  border: 0;
+  border: 1;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -188,7 +188,7 @@ table {
 .modinput {
   border-radius: 30px;
   width: 10%;
-  height: 20%px;
+  height: 20%;
 }
 
 blockquote {
@@ -217,5 +217,7 @@ blockquote {
 
 
 .searchplace{
-display:inline-block
+display:inline-block;
+ margin-left: 50px;
+ display: flex;
 }

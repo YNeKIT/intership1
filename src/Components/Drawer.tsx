@@ -95,6 +95,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             />
             Ascunde
           </li>
+          <Link to="Charts" >
           <li className="listmenu">
             <img
               className="mr-10 mt-10"
@@ -105,6 +106,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             />
             Panou Control
           </li>
+          </Link>
 
           <li className="listmenu">
             <img
@@ -115,7 +117,10 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
               alt="closetype"
             />
             Utilizatori
+            
           </li>
+         
+          
 
           <li className="listmenu">
             <img

@@ -2,22 +2,20 @@ import { Input } from "@material-ui/core";
 import React from "react";
 import "./modal.scss";
 import Users from "../Components/Users";
+import { useState } from "react"; 
+import axios from 'axios';
 
-interface ModaliProps {
-  title: any;
-  isOpen: any;
-  onClose: () => void;
-  onSubmit:any;
-  onChange:any
-  handleAddFormChange:() => void;
-  handleAddFormSubmit:() => void;
-}
 
-export const Modali: React.FC<ModaliProps> = ({ isOpen, onClose, handleAddFormChange, handleAddFormSubmit }) => {
-  const outsideRef = React.useRef(null);
-
+function Modali({
+  isOpen,
+  onClose,
+  handleAddFormChange,
+  handleAddFormSubmit,
+  onAddToItem,
+  currentContacts,
   
-
+}) {
+  const outsideRef = React.useRef(null);
 
   const handleCloseOnOverlay = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
@@ -42,59 +40,61 @@ export const Modali: React.FC<ModaliProps> = ({ isOpen, onClose, handleAddFormCh
         <div className={"modal__content"}></div>
         <div>
           <div className="moddas">
-             
             <form onSubmit={handleAddFormSubmit} className="   mt-20 ml-40">
-        <input
-          className="modinput"
-          required
-          name="fullname"
-          placeholder="Numele"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="idnp"
-          placeholder="Idnp"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="email"
-          placeholder="Email"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="phone"
-          placeholder="telefon"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="function"
-          placeholder="Functie"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="rol"
-          placeholder="Rol"
-          onChange={handleAddFormChange}
-        />
-        <button className="modalbtn">submit</button>
-      </form>
+              <input
+                className="modinput"
+                required
+                name="fullname"
+                placeholder="Numele"
+                onChange={handleAddFormChange}
+              />
+              <input
+                className="modinput"
+                required
+                name="idnp"
+                placeholder="Idnp"
+                onChange={handleAddFormChange}
+              />
+              <input
+                className="modinput"
+                required
+                name="email"
+                placeholder="Email"
+                onChange={handleAddFormChange}
+              />
+              <input
+                className="modinput"
+                required
+                name="phone"
+                placeholder="telefon"
+                onChange={handleAddFormChange}
+              />
+              <input
+                className="modinput"
+                required
+                name="function"
+                placeholder="Functie"
+                onChange={handleAddFormChange}
+              />
+              <input
+                className="modinput"
+                required
+                name="rol"
+                placeholder="Rol"
+                onChange={handleAddFormChange}
+              />
+              <button onClick={()=>onAddToItem()} className="modalbtn">
+                Submit
+              </button>
+              
+
+
+            </form>
           </div>
         </div>
       </div>
     </div>
   ) : null;
-};
-
-
+}
 
 export default Modali;

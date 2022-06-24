@@ -1,5 +1,6 @@
 import React from "react";
 import "./Comp.modules.scss";
+import Button from "@material-ui/core/Button";
 
 const Pagination = ({ contactsPerPage, totalContacts, paginate }) => {
   const pageNumbers: number[] = [];
@@ -11,13 +12,13 @@ const Pagination = ({ contactsPerPage, totalContacts, paginate }) => {
     <nav>
       <div className="pagination clear cu-p">
         {pageNumbers.map((number) => (
-          <button
+          <Button
             key={number}
             onClick={() => paginate(number)}
             className="page-item"
           >
             <a>{number}</a>
-          </button>
+          </Button>
         ))}
       </div>
     </nav>

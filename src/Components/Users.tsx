@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Modali } from "../modalW/modali";
+import  Modali from "../modalW/modali";
 import { nanoid } from "nanoid";
 import Pagination from "./Pagination";
 import axios from "axios";
-
+import Table from "./table";
+import { Button } from "@material-ui/core";
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModal = () => setModalState(!isModalOpen);
@@ -56,15 +57,14 @@ function Users() {
     setContacts(newContacts);
   };
 
-  // const handleServiceRemouve = (index: any) => {
-  //   const list = [...contacts];
-  //   list.splice(index, 1);
-  //   setContacts(list);
-  // };
+  const onRemoveItem = (id) => {
+    axios.delete(`https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts/${id}`);
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
+  };
 
-  const onRemoveItem = (id) =>{
-    setContacts((prev)=> prev.filter(contacts => contacts.id !== id) );
-  }
+  
+
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [contactsPerPage, setContactsPerPage] = useState(10);
@@ -83,6 +83,25 @@ function Users() {
     setIsFavorite(!isFavorite);
   };
 
+
+  const [favorites, setFavorites]= useState<any[]>([]);
+
+  const onAddToFavorite = (contact) => {
+    axios.post(`https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites`, contact);
+  setFavorites((prev) => [...prev, contact])
+  }
+ 
+
+const [onAddItem, setItem] =useState<any[]>([]);
+
+const onAddToItem = (contact) => {
+  axios.post(`https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts`,contact);
+  setItem((prev) => [...prev, contact] )
+  console.log()
+}
+
+
+  
   return (
     <>
       <div>
@@ -100,9 +119,9 @@ function Users() {
           placeholder="Searching..."
           onChange={(e) => setQuery(e.target.value)}
         />
-        {/* <h1 className="searchplace">{query ? `Searching for: "${query}"` : '' }</h1> */}
+        
         <div className="butons">
-          <button className="blueButtonfil">
+          <Button className="blueButtonfil">
             <img
               className="mr-10"
               width={20}
@@ -111,9 +130,9 @@ function Users() {
               alt="filter"
             />
             Filtre
-          </button>
+          </Button>
 
-          <button className="blueButtonUniv">
+          <Button className="blueButtonUniv">
             <img
               className="mr-10 mb-3"
               width={20}
@@ -122,9 +141,9 @@ function Users() {
               alt="sort"
             />
             Sortare
-          </button>
+          </Button>
 
-          <button onClick={toggleModal} className="blueButtonUniv">
+          <Button onClick={toggleModal} className="blueButtonUniv">
             <img
               className="mr-10 mt-3"
               width={20}
@@ -133,138 +152,34 @@ function Users() {
               alt="plus"
             />
             Adauga
-          </button>
+          </Button>
         </div>
       </div>
+ 
+      <h1 className="searchplace">{query ? `Searching for: "${query}"` : '' }</h1>
 
-      <table className="userTab">
-        <thead>
-          <tr>
-            <th>Nume și prenume</th>.<th>E-mail</th>
-            <th>Telefon</th>
-            <th>Functie</th>
-            <th>Rol utilizator</th>
-            <th>Block/Favorite</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentContacts
-            .filter((contacts) =>
-              contacts.fullname.toLowerCase().includes(query)
-            )
-
-            .map((contact) => (
-              <tr key={contact.id}>
-                <td className="fullname">
-                  <img
-                    className="iconutil"
-                    width={20}
-                    height={20}
-                    src="/images/usericon.svg "
-                    alt="plus"
-                  />
-                  {contact.fullname}
-                </td>
-                <td>{contact.idnp}</td>
-                <td>{contact.email}</td>
-                <td>{contact.phone}</td>
-                <td>{contact.function}</td>
-                <td>{contact.rol}</td>
-
-                <td>
-                  <button onClick={onClickFavorite} className="tablebtn">
-                    <img
-                      
-                      width={15}
-                      height={15}
-                      src={
-                        isFavorite
-                          ? "/images/heardlike.svg"
-                          : "/images/heart.svg"
-                      }
-                      alt="closetype"
-                    />
-                  </button>
-                  <button
-                    className="tablebtn"
-                    // onClick={() => handleServiceRemouve(index)}
-                    onClick={onRemoveItem}
-                  >
-                    <img
-                      width={15}
-                      height={15}
-                      src="/images/close.svg"
-                      alt="closetype"
-                    />
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <Table
+        currentContacts={currentContacts}
+        query={query}
+        onClickFavorite={onClickFavorite}
+        isFavorite={isFavorite}
+        onRemoveItem={onRemoveItem}
+        onAddToFavorite={onAddToFavorite}
+      />
       <Pagination
         contactsPerPage={contactsPerPage}
         totalContacts={contacts.length}
         paginate={paginate}
       />
 
-      {/* <form onSubmit={handleAddFormSubmit} className="   mt-20 ml-40">
-        <input
-          className="modinput"
-          required
-          name="fullname"
-          placeholder="Numele"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="idnp"
-          placeholder="Idnp"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="email"
-          placeholder="Email"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="phone"
-          placeholder="telefon"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="function"
-          placeholder="Functie"
-          onChange={handleAddFormChange}
-        />
-        <input
-          className="modinput"
-          required
-          name="rol"
-          placeholder="Rol"
-          onChange={handleAddFormChange}
-        />
-        <button className="modalbtn">submit</button>
-      </form> */}
       <Modali
-        title={""}
         isOpen={isModalOpen}
         onClose={toggleModal}
-        onSubmit={handleAddFormSubmit}
-        onChange={handleAddFormChange}
-        handleAddFormChange={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        handleAddFormSubmit={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        handleAddFormSubmit={handleAddFormSubmit}
+        handleAddFormChange={handleAddFormChange}
+        onAddToItem={onAddToItem}
+        currentContacts={currentContacts}
+       
       />
     </>
   );
