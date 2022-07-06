@@ -8,8 +8,6 @@ import React, { useReducer, useEffect } from "react";
 // import CardHeader from "@material-ui/core/CardHeader";
 // import Button from "@material-ui/core/Button";
 // import "macro-css";
-// import axios from "axios";
-// import { useState, SyntheticEvent } from "react";
 
 // const useStyles = makeStyles((theme: Theme) =>
 //   createStyles({
@@ -96,7 +94,7 @@ import React, { useReducer, useEffect } from "react";
 //   }
 // };
 
-// const SignIn = () => {
+// const Register = () => {
 //   const classes = useStyles();
 //   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -152,61 +150,22 @@ import React, { useReducer, useEffect } from "react";
 //     });
 //   };
 
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
- 
-//   const submit = async (e: SyntheticEvent) => {
-//     e.preventDefault();
-
-//     await fetch("https://62ac57b7bd0e5d29af209f98.mockapi.io/Register", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       credentials: "include",
-//       body: JSON.stringify({
-//         name,
-//         email,
-//         password,
-//       }),
-//     });
-//   };
-
-
-  
-
-
 //   return (
-//     <form
-//       onSubmit={submit}
-//       className={classes.container}
-//       noValidate
-//       autoComplete="off"
-//     >
+//     <form className={classes.container} noValidate autoComplete="off">
 //       <Card className={classes.card}>
-//         <CardHeader className={classes.header} title="Sign In" />
+//         <CardHeader className={classes.header} title="Register " />
 //         <CardContent>
 //           <div>
 //             <TextField
 //               error={state.isError}
 //               fullWidth
-//               id="fullname"
-//               type="fullname"
-//               label="Name"
-//               placeholder="Full Name"
-//               margin="normal"
-//               onKeyPress={handleKeyPress}
-//               onChange={(e) => setName(e.target.value)}
-//             />
-//             <TextField
-//               error={state.isError}
-//               fullWidth
-//               id="email"
+//               id="username"
 //               type="email"
-//               label="Email"
-//               placeholder="user@gmail.com"
+//               label="Username"
+//               placeholder="Username"
 //               margin="normal"
+//               onChange={handleUsernameChange}
 //               onKeyPress={handleKeyPress}
-//               onChange={(e) => setEmail(e.target.value)}
 //             />
 //             <TextField
 //               error={state.isError}
@@ -217,13 +176,70 @@ import React, { useReducer, useEffect } from "react";
 //               placeholder="Parolă"
 //               margin="normal"
 //               helperText={state.helperText}
-//               onChange={(e) => setPassword(e.target.value)}
+//               onChange={handlePasswordChange}
+//               onKeyPress={handleKeyPress}
+//             />
+
+//             <TextField
+//               error={state.isError}
+//               fullWidth
+//               id="idnp"
+//               type="email"
+//               label="idnp"
+//               placeholder="idnp"
+//               margin="normal"
+//               onChange={handleUsernameChange}
+//               onKeyPress={handleKeyPress}
+//             />
+//             <TextField
+//               error={state.isError}
+//               fullWidth
+//               id="Email"
+//               type="email"
+//               label="Email"
+//               placeholder="Emailexample@gmail.com"
+//               margin="normal"
+//               onChange={handleUsernameChange}
+//               onKeyPress={handleKeyPress}
+//             />
+
+//             <TextField
+//               error={state.isError}
+//               fullWidth
+//               id="Phone"
+//               type="Phone"
+//               label="Phone"
+//               placeholder="Phone Number"
+//               margin="normal"
+//               onChange={handleUsernameChange}
+//               onKeyPress={handleKeyPress}
+//             />
+//             <TextField
+//               error={state.isError}
+//               fullWidth
+//               id="Function"
+//               type="Function"
+//               label="Function"
+//               placeholder="Function"
+//               margin="normal"
+//               onChange={handleUsernameChange}
+//               onKeyPress={handleKeyPress}
+//             />
+//             <TextField
+//               error={state.isError}
+//               fullWidth
+//               id="Rol"
+//               type="Rol"
+//               label="Rol"
+//               placeholder="Rol"
+//               margin="normal"
+//               onChange={handleUsernameChange}
 //               onKeyPress={handleKeyPress}
 //             />
 //           </div>
 //         </CardContent>
 //         <CardActions>
-//           <Link to="Home">
+//           <Link to="/Home">
 //             <Button
 //               style={{
 //                 maxWidth: "550px",
@@ -231,23 +247,24 @@ import React, { useReducer, useEffect } from "react";
 //                 minWidth: "382px",
 //                 minHeight: "50px",
 //               }}
-//               color="default"
 //               variant="contained"
-            
+//               color="default"
+//               className="Conectbtn"
+//               onClick={handleLogin}
 //               disabled={state.isButtonDisabled}
 //             >
-//               Conectează-te
+//               Submit
 //             </Button>
 //           </Link>
 //         </CardActions>
 
 //         <p className="RegisterLink">
-//           {" "}
-//           Don't have an account? <Link to="Register"> Register </Link>
+//           Already have an account?
+//           <Link to="/"> Sign in </Link>{" "}
 //         </p>
 //       </Card>
 //     </form>
 //   );
 // };
 
-// export default SignIn;
+// export default Register;
