@@ -23,7 +23,7 @@ body {
 
 .butons {
   display: inline;
-  
+  margin-bottom: px;
 }
 
 .blueButtonfil {
@@ -87,6 +87,7 @@ body {
 }
 
 .listmenu {
+  
   margin-right: 10px;
   margin-top: 10px;
   cursor: pointer;
@@ -221,3 +222,58 @@ display:inline-block;
  margin-left: 50px;
  display: flex;
 }
+
+.RegisterLink {
+display: flex;
+font-size: 16px;
+  font-weight: 500;
+  margin-left: 90px;
+ 
+}
+
+
+
+
+.PageError {
+  display: flex;
+ 
+
+
+}
+
+
+
+ 
+ .profilname{
+  display: inline;
+ 
+  
+ }
+
+ .profileimg{
+ 
+  border-radius: 15px;
+  margin-right:10px;
+  
+ }
+
+ .posttitle{
+  margin-left: 20px;
+ }
+
+ .profileImgPage {
+  margin-top: 25px;
+   border-radius:50px ;
+  margin-left: 20px;
+  display: inline;
+  vertical-align: middle;
+
+            
+ }
+
+ .nickname{
+display: inline;
+margin-left: 10px;
+  
+  
+ }

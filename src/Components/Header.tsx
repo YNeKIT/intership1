@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Profile from "./ProfileHead";
+
+
 
 interface Props {
   toggLeVisibility: () => void;
+
 }
 
-const Header: React.FC<Props> = ({ toggLeVisibility }) => (
+const Header: React.FC<Props> = ({ toggLeVisibility } ) => (
+
+ 
   <header className="d-flex justify-between align-center p-10">
     <div className="d-flex align-center">
       <div onClick={toggLeVisibility} className="menu ">
@@ -41,7 +47,18 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
           alt="bell"
         />
       </li>
-      <li className="mr-20  d-flex  ">
+     
+      
+      <Profile 
+      />
+      {/* <ModalLog
+       isOpen={isModalOpen}
+       onClose={toggleModal}
+      
+      /> */}
+
+
+      {/* <li className="mr-20  d-flex  ">
         <img
           className="mr-10 d-flex cu-p "
           width={20}
@@ -50,9 +67,16 @@ const Header: React.FC<Props> = ({ toggLeVisibility }) => (
           alt="users"
         />
         <span> Profile</span>
-      </li>
+      </li> */}
+    
     </ul>
+   
+  
+
   </header>
+
+
+  
 );
 
 export default Header;

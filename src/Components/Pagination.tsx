@@ -1,6 +1,8 @@
 import React from "react";
 import "./Comp.modules.scss";
 import Button from "@material-ui/core/Button";
+import ReactPaginate from "react-paginate";
+
 
 const Pagination = ({ contactsPerPage, totalContacts, paginate }) => {
   const pageNumbers: number[] = [];

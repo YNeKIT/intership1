@@ -12,7 +12,7 @@ function Modali({
   handleAddFormChange,
   handleAddFormSubmit,
   onAddToItem,
-  currentContacts,
+ 
   
 }) {
   const outsideRef = React.useRef(null);

@@ -1,11 +1,10 @@
 .pagination {
-  margin-left: 45%;
   display: flex;
   margin-top: 20px;
+  justify-content: center;
 }
 
 .page-item {
-  margin-left: 3px;
   cursor: pointer;
   border-radius: 5%;
 

@@ -1,13 +1,12 @@
-import React  from "react";
+import React from "react";
 
 function Table({
-  
   currentContacts,
   query,
   onClickFavorite,
   isFavorite,
   onRemoveItem,
-  onAddToFavorite
+  onAddToFavorite,
 }) {
   return (
     <table className="userTab">
@@ -42,13 +41,13 @@ function Table({
               <td>{contact.function}</td>
               <td>{contact.rol} </td>
 
-              <td onClick={()=>onAddToFavorite(contact)}>
+              <td onClick={(contact) => onAddToFavorite(contact)}>
                 <button onClick={onClickFavorite} className="tablebtn">
-                  <img  
+                  <img
                     width={15}
                     height={15}
                     src={
-                      isFavorite ? '/images/heardlike.svg' : '/images/heart.svg'
+                      isFavorite ? "/images/heardlike.svg" : "/images/heart.svg"
                     }
                     alt="closetype"
                   />

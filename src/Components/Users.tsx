@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import  Modali from "../modalW/modali";
+import Modali from "../modalW/modali";
 import { nanoid } from "nanoid";
 import Pagination from "./Pagination";
 import axios from "axios";
 import Table from "./table";
 import { Button } from "@material-ui/core";
+
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModal = () => setModalState(!isModalOpen);
@@ -27,6 +28,7 @@ function Users() {
     phone: "",
     function: "",
     rol: "",
+    id: "",
   });
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -62,10 +64,6 @@ function Users() {
     setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
-  
-
-  
-
   const [currentPage, setCurrentPage] = useState(1);
   const [contactsPerPage, setContactsPerPage] = useState(10);
 
@@ -79,29 +77,32 @@ function Users() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const [isFavorite, setIsFavorite] = React.useState(false);
+
   const onClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
-
-  const [favorites, setFavorites]= useState<any[]>([]);
+  const [favorites, setFavorites] = useState<any[]>([]);
 
   const onAddToFavorite = (contact) => {
-    axios.post(`https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites`, contact);
-  setFavorites((prev) => [...prev, contact])
-  }
- 
+    axios.post(
+      "https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites",
+      contact
+    );
+    setFavorites((prev) => [...prev, contact]);
+  };
 
-const [onAddItem, setItem] =useState<any[]>([]);
+  const [onAddItem, setItem] = useState<any[]>([]);
 
-const onAddToItem = (contact) => {
-  axios.post(`https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts`,contact);
-  setItem((prev) => [...prev, contact] )
-  console.log()
-}
+  const onAddToItem = (contact) => {
+    axios.post(
+      `https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts/${contact}`,
+      contacts
+    );
+    setItem((prev) => [...prev, contact]);
+    console.log(contact);
+  };
 
-
-  
   return (
     <>
       <div>
@@ -119,7 +120,7 @@ const onAddToItem = (contact) => {
           placeholder="Searching..."
           onChange={(e) => setQuery(e.target.value)}
         />
-        
+
         <div className="butons">
           <Button className="blueButtonfil">
             <img
@@ -155,8 +156,10 @@ const onAddToItem = (contact) => {
           </Button>
         </div>
       </div>
- 
-      <h1 className="searchplace">{query ? `Searching for: "${query}"` : '' }</h1>
+
+      <h1 className="searchplace">
+        {query ? `Searching for: "${query}"` : ""}
+      </h1>
 
       <Table
         currentContacts={currentContacts}
@@ -165,6 +168,7 @@ const onAddToItem = (contact) => {
         isFavorite={isFavorite}
         onRemoveItem={onRemoveItem}
         onAddToFavorite={onAddToFavorite}
+        // onFavorite={onFavorite}
       />
       <Pagination
         contactsPerPage={contactsPerPage}
@@ -178,8 +182,7 @@ const onAddToItem = (contact) => {
         handleAddFormSubmit={handleAddFormSubmit}
         handleAddFormChange={handleAddFormChange}
         onAddToItem={onAddToItem}
-        currentContacts={currentContacts}
-       
+        // currentContacts={currentContacts}
       />
     </>
   );
