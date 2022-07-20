@@ -1,85 +1,65 @@
-import react from "react";
-// import {
-//   ComposedChart,
-//   Line,
-//   Area,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   Legend,
-//   ResponsiveContainer,
-// } from "recharts";
+import React, { useCallback, useState } from "react";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import { Box, Stack, Typography } from "@mui/material";
+const data = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+];
 
-// const data = [
-//   {
-//     name: "Page A",
-//     uv: 590,
-//     pv: 800,
-//     amt: 1400,
-//   },
-//   {
-//     name: "Page B",
-//     uv: 868,
-//     pv: 967,
-//     amt: 1506,
-//   },
-//   {
-//     name: "Page C",
-//     uv: 1397,
-//     pv: 1098,
-//     amt: 989,
-//   },
-//   {
-//     name: "Page D",
-//     uv: 1480,
-//     pv: 1200,
-//     amt: 1228,
-//   },
-//   {
-//     name: "Page E",
-//     uv: 1520,
-//     pv: 1108,
-//     amt: 1100,
-//   },
-//   {
-//     name: "Page F",
-//     uv: 1400,
-//     pv: 680,
-//     amt: 1700,
-//   },
-// ];
-// function Charts() {
-//   return (
-//     <>
-//       <div>
-//         <h1> Charts </h1>
-//       </div>
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-      
-        {/* <ComposedChart
-          width={500}
-          height={400}
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}: any) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+export default function Charts() {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        felxWrap: "wrap",
+      }}
+    >
+      <PieChart width={200} height={200}>
+        <Pie
           data={data}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          }}
+          labelLine={false}
+          label={renderCustomizedLabel}
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="value"
         >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="name" scale="band" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="uv" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-        </ComposedChart> */}
-     
-//     </>
-//   );
-// }
-
-// export default Charts;
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+      </PieChart>
+    </Box>
+  );
+}

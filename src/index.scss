@@ -64,7 +64,7 @@ body {
   cursor: pointer;
   transition: 0.4 ease-in-out;
   margin-right: 5px;
-  position:sticky;
+  position: sticky;
 
   &:hover {
     box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
@@ -87,7 +87,6 @@ body {
 }
 
 .listmenu {
-  
   margin-right: 10px;
   margin-top: 10px;
   cursor: pointer;
@@ -214,66 +213,125 @@ blockquote {
   margin-top: 3%;
 }
 
-
-
-
-.searchplace{
-display:inline-block;
- margin-left: 50px;
- display: flex;
+.searchplace {
+  display: inline-block;
+  margin-left: 50px;
+  display: flex;
 }
 
 .RegisterLink {
-display: flex;
-font-size: 16px;
+  display: flex;
+  font-size: 16px;
   font-weight: 500;
   margin-left: 90px;
- 
 }
-
-
-
 
 .PageError {
   display: flex;
- 
-
-
 }
 
-
-
- 
- .profilname{
+.profilname {
   display: inline;
- 
-  
- }
+}
 
- .profileimg{
- 
+.profileimg {
   border-radius: 15px;
-  margin-right:10px;
-  
- }
+  margin-right: 10px;
+}
 
- .posttitle{
+.posttitle {
   margin-left: 20px;
- }
+}
 
- .profileImgPage {
+.profileImgPage {
   margin-top: 25px;
-   border-radius:50px ;
+  border-radius: 50px;
   margin-left: 20px;
   display: inline;
   vertical-align: middle;
+}
 
-            
- }
+.nickname {
+  display: inline;
+  margin-left: 10px;
+}
 
- .nickname{
-display: inline;
-margin-left: 10px;
-  
-  
- }
+.card {
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: rgb(235, 232, 233);
+  border: 1px solid #f3e9e9;
+  padding: 40px;
+  width: 95%;
+  border-radius: 40px;
+  margin-right: 10px;
+  margin-bottom: 60px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  .profileimg {
+    margin-left: 25px;
+  }
+
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateY(-5px);
+  }
+
+  span {
+    font-size: 13px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.cardpost {
+  margin-left: 200px;
+  margin-top: 40px;
+  background-color: rgb(235, 232, 233);
+  border: 1px solid #f3e9e9;
+  padding: 400px;
+  width: 10%;
+  border-radius: 40px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.containerTitle {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+
+.noFavorites {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dangerbutton {
+  height: 25px;
+  justify-content: center;
+  background: #c0392b;
+  margin-left: 30px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.4 ease-in-out;
+  width: 30%;
+
+  &:active {
+    background: darken(#a53125, 5%);
+  }
+}

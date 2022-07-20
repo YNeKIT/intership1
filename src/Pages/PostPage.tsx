@@ -12,20 +12,12 @@ function PostPage() {
     setIsVisible(!isVisible);
   };
 
-  
-
   return (
     <>
       <Header toggLeVisibility={toggLeVisibility} />
       <Drawer isVisible={isVisible} toggLeVisibility={toggLeVisibility} />
 
       <h1 className="posttitle">Post Page</h1>
-     
-      
-      
-  
-
-
     </>
   );
 }

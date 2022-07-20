@@ -1,4 +1,4 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, User } from "@auth0/auth0-react";
 
 const ProfileHead = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -10,7 +10,6 @@ const ProfileHead = () => {
         width={22}
         height={22}
         src={user?.picture}
-      
       />
       <span className="mr-10">{user?.name}</span>
     </>

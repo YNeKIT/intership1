@@ -5,6 +5,7 @@ import Pagination from "./Pagination";
 import axios from "axios";
 import Table from "./table";
 import { Button } from "@material-ui/core";
+import ProfilePage from "../Pages/ProfilePage";
 
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
@@ -18,6 +19,12 @@ function Users() {
       .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts")
       .then((res) => {
         setContacts(res.data);
+      });
+
+    axios
+      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/Posts")
+      .then((res) => {
+        setFavorites(res.data);
       });
   }, []);
 
@@ -85,22 +92,23 @@ function Users() {
   const [favorites, setFavorites] = useState<any[]>([]);
 
   const onAddToFavorite = (contact) => {
-    axios.post(
-      "https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites",
-      contact
-    );
-    setFavorites((prev) => [...prev, contact]);
+    axios
+      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites", contact)
+      .then((response) => setFavorites(response.data.id));
+  };
+  const [blockUsers, setBlockUsers] = useState<any[]>([]);
+  const onAddToBlock = (contact) => {
+    axios
+      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers", contact)
+      .then((response) => setBlockUsers(response.data.id));
   };
 
   const [onAddItem, setItem] = useState<any[]>([]);
 
   const onAddToItem = (contact) => {
-    axios.post(
-      `https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts/${contact}`,
-      contacts
-    );
-    setItem((prev) => [...prev, contact]);
-    console.log(contact);
+    axios
+      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts", contact)
+      .then((response) => setItem(response.data.id));
   };
 
   return (
@@ -168,7 +176,7 @@ function Users() {
         isFavorite={isFavorite}
         onRemoveItem={onRemoveItem}
         onAddToFavorite={onAddToFavorite}
-        // onFavorite={onFavorite}
+        onAddToBlock={onAddToBlock}
       />
       <Pagination
         contactsPerPage={contactsPerPage}
@@ -182,7 +190,7 @@ function Users() {
         handleAddFormSubmit={handleAddFormSubmit}
         handleAddFormChange={handleAddFormChange}
         onAddToItem={onAddToItem}
-        // currentContacts={currentContacts}
+        currentContacts={currentContacts}
       />
     </>
   );

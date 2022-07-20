@@ -7,12 +7,15 @@ function Table({
   isFavorite,
   onRemoveItem,
   onAddToFavorite,
+  onAddToBlock,
 }) {
   return (
     <table className="userTab">
       <thead>
         <tr>
-          <th>Nume și prenume</th>.<th>E-mail</th>
+          <th>Nume și prenume</th>
+          <th>idnp</th>
+          <th>E-mail</th>
           <th>Telefon</th>
           <th>Functie</th>
           <th>Rol utilizator</th>
@@ -22,7 +25,7 @@ function Table({
       <tbody>
         {currentContacts
           .filter((contacts) => contacts.fullname.toLowerCase().includes(query))
-
+          // .toLowerCase().includes(query)
           .map((contact) => (
             <tr key={contact.id}>
               <td className="fullname">
@@ -41,7 +44,7 @@ function Table({
               <td>{contact.function}</td>
               <td>{contact.rol} </td>
 
-              <td onClick={(contact) => onAddToFavorite(contact)}>
+              <td onClick={() => onAddToFavorite(contact)}>
                 <button onClick={onClickFavorite} className="tablebtn">
                   <img
                     width={15}
@@ -54,14 +57,21 @@ function Table({
                 </button>
                 <button
                   className="tablebtn"
-                  onClick={() => onRemoveItem(contact.id)}
+                  onClick={() => onAddToBlock(contact)}
                 >
                   <img
                     width={15}
                     height={15}
-                    src="/images/close.svg"
+                    src="/images/blockuser.svg"
                     alt="closetype"
                   />
+                </button>
+
+                <button
+                  className="dangerbutton"
+                  onClick={() => onRemoveItem(contact.id)}
+                >
+                  Remove
                 </button>
               </td>
             </tr>

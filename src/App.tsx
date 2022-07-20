@@ -4,6 +4,8 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import PageError from "./Pages/PageError";
 import PostPage from "./Pages/PostPage";
 import ProfilePage from "./Pages/ProfilePage";
+import Logoutptt from "./Components/logoutptt";
+import { createSecureContext } from "tls";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         {/* <Route path="Charts" element={<Charts />} /> */}
         <Route path="*" element={<PageError />} />
         <Route path="Profile" element={<ProfilePage />} />
+        <Route path="LogOut" element={<Logoutptt />} />
       </Routes>
     </BrowserRouter>
   );

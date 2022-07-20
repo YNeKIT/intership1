@@ -2,9 +2,8 @@ import { Input } from "@material-ui/core";
 import React from "react";
 import "./modal.scss";
 import Users from "../Components/Users";
-import { useState } from "react"; 
-import axios from 'axios';
-
+import { useState } from "react";
+import axios from "axios";
 
 function Modali({
   isOpen,
@@ -12,8 +11,7 @@ function Modali({
   handleAddFormChange,
   handleAddFormSubmit,
   onAddToItem,
- 
-  
+  currentContacts,
 }) {
   const outsideRef = React.useRef(null);
 
@@ -24,8 +22,6 @@ function Modali({
       onClose();
     }
   };
-
-  
 
   return isOpen ? (
     <div className={"modal"}>
@@ -83,12 +79,9 @@ function Modali({
                 placeholder="Rol"
                 onChange={handleAddFormChange}
               />
-              <button onClick={()=>onAddToItem()} className="modalbtn">
+              <button onClick={() => onAddToItem()} className="modalbtn">
                 Submit
               </button>
-              
-
-
             </form>
           </div>
         </div>

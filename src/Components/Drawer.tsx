@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
-import Loginpt from "../Pages/loginpt2";
-import Logoutptt from "../Pages/logoutptt";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loginpt from "./loginpt2";
+import Logoutptt from "./logoutptt";
 import Profile from "./ProfileHead";
 interface isVisbleDiv {
   isVisible: boolean;
 }
-
 
 const MenuDrawerWrapper = styled.div<isVisbleDiv>`
   width: 250px;
@@ -75,10 +74,8 @@ const MenuIcon = styled.i`
 `;
 
 const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
-  
   <>
     <MenuDrawerWrapper isVisible={isVisible}>
-      
       <MenuTab>
         <MenuIcon>
           <img
@@ -90,7 +87,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
           />
         </MenuIcon>
       </MenuTab>
-      <ListMenu  >
+      <ListMenu>
         <ul className="clear">
           <li onClick={toggLeVisibility} className="listmenu">
             <img
@@ -115,34 +112,33 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             </li>
           </Link>
           <Link to="/">
-          <li className="listmenu">
-            <img
-              className="mr-10 mt-10"
-              width={20}
-              height={20}
-              src="/images/users.svg"
-              alt="closetype"
-            />
-            Utilizatori
-          </li>
+            <li className="listmenu">
+              <img
+                className="mr-10 mt-10"
+                width={20}
+                height={20}
+                src="/images/users.svg"
+                alt="closetype"
+              />
+              Utilizatori
+            </li>
           </Link>
           <Link to="Profile">
-          <li className="listmenu">
-            <img
-              className="mr-10 mt-10"
-              width={20}
-              height={20}
-              src="/images/persona.svg"
-              alt="closetype"
-            />
-            Profil
-          </li>
-         </Link>
+            <li className="listmenu">
+              <img
+                className="mr-10 mt-10"
+                width={20}
+                height={20}
+                src="/images/persona.svg"
+                alt="closetype"
+              />
+              Profil
+            </li>
+          </Link>
 
-          <Loginpt/>
-          <Logoutptt/>
-          
-          
+          <Loginpt />
+          <Logoutptt />
+
           {/* <Link to="/">
             <li className="listmenu">
               <img
@@ -159,7 +155,6 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
       </ListMenu>
     </MenuDrawerWrapper>
     <MenuDrawerOverlay onClick={toggLeVisibility} isVisible={isVisible} />
-    
   </>
 );
 export default Drawer;
