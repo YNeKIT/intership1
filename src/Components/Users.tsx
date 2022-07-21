@@ -107,9 +107,15 @@ function Users() {
 
   const onAddToItem = (contact) => {
     axios
-      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts", contact)
+      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers", contact)
       .then((response) => setItem(response.data.id));
-  };
+ 
+
+
+  
+};
+
+
 
   return (
     <>

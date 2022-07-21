@@ -22,12 +22,12 @@ function Table({
           <th>Block/Favorite</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         {currentContacts
           .filter((contacts) => contacts.fullname.toLowerCase().includes(query))
-          // .toLowerCase().includes(query)
+
           .map((contact) => (
-            <tr key={contact.id}>
+            <tr className="tabledes" key={contact.id}>
               <td className="fullname">
                 <img
                   className="iconutil"
@@ -38,7 +38,7 @@ function Table({
                 />
                 {contact.fullname}
               </td>
-              <td>{contact.idnp}</td>
+              <td className="tabledes">{contact.idnp}</td>
               <td>{contact.email}</td>
               <td>{contact.phone}</td>
               <td>{contact.function}</td>

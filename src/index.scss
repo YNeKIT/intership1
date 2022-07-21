@@ -257,7 +257,7 @@ blockquote {
 }
 
 .card {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 10px;
   background-color: rgb(235, 232, 233);
   border: 1px solid #f3e9e9;
@@ -333,5 +333,13 @@ blockquote {
 
   &:active {
     background: darken(#a53125, 5%);
+  }
+}
+
+.tabledes {
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+ 
+  &:active {
+    background: darken(#dedede, 5%);
   }
 }

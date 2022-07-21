@@ -46,15 +46,17 @@ function Header({ toggLeVisibility }) {
       </div>
 
       <ul className="d-flex clear  ">
+      <Link to="Register">
         <li className="mr-20 cu-p ">
           <img
-            className="mr-10 cu-p d-flex "
+            className="mr-10 mt-10 cu-p d-flex "
             width={20}
             height={20}
             src="/images/bell.svg"
             alt="bell"
           />
         </li>
+        </Link>
         <hr />
 
         <div className="clear">
@@ -65,7 +67,7 @@ function Header({ toggLeVisibility }) {
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
           >
-            <Profile />
+            <Profile/>
           </Button>
           <Menu
             id="basic-menu"

@@ -23,6 +23,9 @@ function Modali({
     }
   };
 
+  const [items, setItems] = useState<any[]>([]);
+
+
   return isOpen ? (
     <div className={"modal"}>
       <div

@@ -1,4 +1,4 @@
-import react from "react";
+
 import Drawer from "../Components/Drawer";
 import Header from "../Components/Header";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -82,6 +82,9 @@ const ProfilePage = () => {
 
       <div className="card">
         <h1 className="containerTitle">My Profile</h1>
+
+       { isAuthenticated && (
+        <div className="d-if">
         <img
           className="profileimg"
           width={100}
@@ -89,7 +92,11 @@ const ProfilePage = () => {
           src={user?.picture}
           alt="picture"
         />
-
+        <h1>{user?.email}</h1>
+       
+        </div>
+        )}
+          
         <div className="d-flex justify-between align-center"></div>
       </div>
       <div className="card">
@@ -134,16 +141,17 @@ const ProfilePage = () => {
         ) : (
           <div className="noFavorites">
             <img
-              className="ml-50 cu-p d-flex "
+              className="mr-50 cu-p d-flex "
               width={80}
               height={80}
-              src="/images/sadface.png"
+              src="/images/sadf.svg"
               alt="sad"
             />
             <b> Sorry, you don't have friends </b>
           </div>
         )}
       </div>
+     
 
       <div className="card">
         <h1 className="ml-30">Block Users</h1>
@@ -188,7 +196,7 @@ const ProfilePage = () => {
         ) : (
           <div className="noFavorites">
             <img
-              className="ml-50 cu-p d-flex "
+              className="mr-50 cu-p d-flex "
               width={80}
               height={80}
               src="/images/smilept2.svg"
@@ -201,7 +209,7 @@ const ProfilePage = () => {
           <div className="d-flex flex-column"></div>
         </div>
       </div>
-      <Charts />
+      <Charts/>
     </>
   );
 };

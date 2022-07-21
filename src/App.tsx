@@ -2,6 +2,7 @@ import Home from "./Pages/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 // import Charts from "./Pages/Charts";
 import PageError from "./Pages/PageError";
+import Register from "./Pages/Register";
 import PostPage from "./Pages/PostPage";
 import ProfilePage from "./Pages/ProfilePage";
 import Logoutptt from "./Components/logoutptt";
@@ -17,6 +18,7 @@ function App() {
         <Route path="*" element={<PageError />} />
         <Route path="Profile" element={<ProfilePage />} />
         <Route path="LogOut" element={<Logoutptt />} />
+        <Route path="Register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
