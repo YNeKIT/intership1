@@ -46,7 +46,7 @@ function Header({ toggLeVisibility }) {
       </div>
 
       <ul className="d-flex clear  ">
-      <Link to="Register">
+      <Link to="LogIn">
         <li className="mr-20 cu-p ">
           <img
             className="mr-10 mt-10 cu-p d-flex "
@@ -58,17 +58,21 @@ function Header({ toggLeVisibility }) {
         </li>
         </Link>
         <hr />
-
+         
         <div className="clear">
           <Button
+
+            
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
           >
+            Profile
             <Profile/>
           </Button>
+        
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
@@ -91,7 +95,9 @@ function Header({ toggLeVisibility }) {
           </Menu>
         </div>
       </ul>
+      
     </header>
+   
   );
 }
 export default Header;

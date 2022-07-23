@@ -108,10 +108,11 @@ const ProfilePage = () => {
             sx={{ width: "100%", maxWidth: 1500, bgcolor: "background.gray" }}
           >
             {favorites.map((favorites) => {
-              const labelId = `checkbox-list-secondary-label-${favorites}`;
+              
+              const labelId = `checkbox-list-secondary-label-${favorites}` ;
               return (
                 <ListItem
-                  key={labelId}
+                  key={favorites.id}
                   secondaryAction={
                     <Checkbox
                       edge="end"
@@ -164,7 +165,7 @@ const ProfilePage = () => {
               const labelId = `checkbox-list-secondary-label-${blockitems}`;
               return (
                 <ListItem
-                  key={labelId}
+                  key={blockitems.id}
                   secondaryAction={
                     <Checkbox
                       edge="end"

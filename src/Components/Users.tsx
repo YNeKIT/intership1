@@ -6,6 +6,7 @@ import axios from "axios";
 import Table from "./table";
 import { Button } from "@material-ui/core";
 import ProfilePage from "../Pages/ProfilePage";
+import { Link } from "react-router-dom";
 
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
@@ -109,18 +110,13 @@ function Users() {
     axios
       .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers", contact)
       .then((response) => setItem(response.data.id));
- 
-
-
-  
-};
-
-
+   };
 
   return (
     <>
       <div>
-        <h1 className="pageName">Utilizatori</h1>
+        
+        <h1 className="pageName">Utilizatori</h1> 
         <img
           className="searchinput"
           width={20}

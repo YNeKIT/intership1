@@ -24,7 +24,23 @@ function Modali({
   };
 
   const [items, setItems] = useState<any[]>([]);
+  const [onAddIteml, setItem] = useState<any[]>([]);
 
+  const onAddToIteml = () => {
+    axios
+      .post("https://api.lensa.devebs.net/dashboard/auth/login", )
+      .then((response) => setItem(response.data.id));
+      
+  };
+
+  //   const [onAddItem, setItem] = useState<any[]>([]);
+
+//   const onAddToItem = (state) => {
+//     axios
+//       .post("https://api.lensa.devebs.net/dashboard/auth/login", state)
+//       .then((response) => setItem(response.data.id));
+      
+//   };
 
   return isOpen ? (
     <div className={"modal"}>
@@ -51,38 +67,11 @@ function Modali({
                 className="modinput"
                 required
                 name="idnp"
-                placeholder="Idnp"
+                placeholder="parola"
                 onChange={handleAddFormChange}
               />
-              <input
-                className="modinput"
-                required
-                name="email"
-                placeholder="Email"
-                onChange={handleAddFormChange}
-              />
-              <input
-                className="modinput"
-                required
-                name="phone"
-                placeholder="telefon"
-                onChange={handleAddFormChange}
-              />
-              <input
-                className="modinput"
-                required
-                name="function"
-                placeholder="Functie"
-                onChange={handleAddFormChange}
-              />
-              <input
-                className="modinput"
-                required
-                name="rol"
-                placeholder="Rol"
-                onChange={handleAddFormChange}
-              />
-              <button onClick={() => onAddToItem()} className="modalbtn">
+            
+              <button onClick={() => onAddToIteml()} className="modalbtn">
                 Submit
               </button>
             </form>

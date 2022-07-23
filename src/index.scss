@@ -320,6 +320,9 @@ blockquote {
   justify-content: center;
 }
 
+
+
+
 .dangerbutton {
   height: 25px;
   justify-content: center;
@@ -336,10 +339,34 @@ blockquote {
   }
 }
 
-.tabledes {
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+// .tabledes {
+//   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
  
+//   &:active {
+//     background: darken(#e0e0e0, 5%);
+//   }
+// }
+.baton {
+  margin-left: 30px!important;
+  width: 15%;
+  height: 30px;
+  background: #e2e4f2 !important;
+  border-radius: 18px;
+  border: 1;
+  color: rgb(243, 131, 131);
+  font-size: 12px!important;
+  font-weight: 450;
+  cursor: pointer;
+  transition: 0.4 ease-in-out;
+
+  position: sticky;
+
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(215, 6, 6, 0.07) !important;
+   
+  }
+
   &:active {
-    background: darken(#dedede, 5%);
+    background: darken(#e25d5d, 5% ) !important ;
   }
 }

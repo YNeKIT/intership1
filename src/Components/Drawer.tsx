@@ -99,7 +99,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
             />
             Ascunde
           </li>
-          <Link to="PostPage">
+          <Link to="/PostPage">
             <li className="listmenu">
               <img
                 className="mr-10 mt-10"

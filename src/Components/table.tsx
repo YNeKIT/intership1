@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Button } from "@material-ui/core";
 function Table({
   currentContacts,
   query,
@@ -45,7 +45,7 @@ function Table({
               <td>{contact.rol} </td>
 
               <td onClick={() => onAddToFavorite(contact)}>
-                <button onClick={onClickFavorite} className="tablebtn">
+                <Button onClick={onClickFavorite} className="tablebtn">
                   <img
                     width={15}
                     height={15}
@@ -54,8 +54,8 @@ function Table({
                     }
                     alt="closetype"
                   />
-                </button>
-                <button
+                </Button>
+                <Button
                   className="tablebtn"
                   onClick={() => onAddToBlock(contact)}
                 >
@@ -65,14 +65,14 @@ function Table({
                     src="/images/blockuser.svg"
                     alt="closetype"
                   />
-                </button>
+                </Button>
 
-                <button
-                  className="dangerbutton"
+                <Button
+                  className="baton"
                   onClick={() => onRemoveItem(contact.id)}
                 >
                   Remove
-                </button>
+                </Button>
               </td>
             </tr>
           ))}
