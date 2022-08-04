@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./ProfileHead";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import { useState, useContext } from "react";
+import { UserContext } from "../UserContext";
+import "./Comp.modules.scss";
 
 interface Props {
   toggLeVisibility: () => void;
@@ -19,6 +22,8 @@ function Header({ toggLeVisibility }) {
     setAnchorEl(null);
   };
 
+  const { userProfile, setUserProfile } = useContext(UserContext);
+  let { isAutentificated } = useContext(UserContext);
   return (
     <header className="d-flex justify-between align-center p-10">
       <div className="d-flex align-center">
@@ -46,7 +51,6 @@ function Header({ toggLeVisibility }) {
       </div>
 
       <ul className="d-flex clear  ">
-      <Link to="LogIn">
         <li className="mr-20 cu-p ">
           <img
             className="mr-10 mt-10 cu-p d-flex "
@@ -56,23 +60,27 @@ function Header({ toggLeVisibility }) {
             alt="bell"
           />
         </li>
-        </Link>
-        <hr />
-         
+
         <div className="clear">
           <Button
-
-            
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
           >
-            Profile
-            <Profile/>
+            <h3 className="ussernameheader">{userProfile.first_name}</h3>
+            <img
+              className="ml-10 mb-10"
+              width={20}
+              height={20}
+              src="/images/dotmenu.svg"
+              alt="menu"
+            />
+
+            <Profile />
           </Button>
-        
+
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
@@ -82,22 +90,22 @@ function Header({ toggLeVisibility }) {
               "aria-labelledby": "basic-button",
             }}
           >
-            <Link to="Profile">
-              <MenuItem onClick={handleClose}>Profile</MenuItem>{" "}
+            <Link to="/Profile">
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
             </Link>
             <Link to="/">
               <MenuItem onClick={handleClose}>Utilizatori</MenuItem>
             </Link>
-            <Link to="LogOut">
-              {" "}
-              <MenuItem onClick={handleClose}> Log Out</MenuItem>{" "}
+            <Link to="/PostPage">
+              <MenuItem onClick={handleClose}>Post</MenuItem>
+            </Link>
+            <Link to="/LogIn" onClick={() => localStorage.clear()}>
+              <MenuItem onClick={handleClose}> Log Out</MenuItem>
             </Link>
           </Menu>
         </div>
       </ul>
-      
     </header>
-   
   );
 }
 export default Header;

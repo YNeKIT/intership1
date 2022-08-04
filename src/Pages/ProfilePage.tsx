@@ -1,8 +1,7 @@
-
 import Drawer from "../Components/Drawer";
 import Header from "../Components/Header";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -11,13 +10,20 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Checkbox from "@mui/material/Checkbox";
 import Avatar from "@mui/material/Avatar";
-import axios from "axios";
 import Charts from "../Pages/Charts";
+import { UserContext } from "../UserContext";
+import axios from "../Api/axiosMockConfig";
+import { getItems, mockapiCard } from "../Api/axiosMock";
 
 const ProfilePage = () => {
   const { user, isAuthenticated } = useAuth0();
   const [isVisible, setIsVisible] = useState(false);
-
+  const [favorites, setFavorites] = useState<any[]>([]);
+  const [blockitems, setBlockItems] = useState<any[]>([]);
+  const [checked, setChecked] = React.useState([1]);
+  const { userProfile, setUserProfile, isAutentificated } =
+  useContext(UserContext);
+  const [avatar, setAvatar] = useState<any[]>([]);
   const toggLeVisibility = () => {
     setIsVisible(!isVisible);
   };
@@ -26,8 +32,6 @@ const ProfilePage = () => {
     user: void;
     isAuthenticated: any;
   };
-
-  const [checked, setChecked] = React.useState([1]);
 
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
@@ -42,39 +46,26 @@ const ProfilePage = () => {
     setChecked(newChecked);
   };
 
-  const [favorites, setFavorites] = useState<any[]>([]);
-  const [blockitems, setBlockItems] = useState<any[]>([]);
   useEffect(() => {
-    axios
-      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites")
-      .then((res) => {
-        console.log(res);
-        setFavorites(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    axios
-      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers")
-      .then((res) => {
-        console.log(res);
-        setBlockItems(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getItems.getFavorites().then((res) => {
+      setFavorites(res.data);
+      console.log(res.data);
+    });
+    getItems.getBlockUsers().then((res) => {
+      setBlockItems(res.data);
+      console.log(res.data);
+    });
   }, []);
 
   const onRemoveItem = (id) => {
-    axios.delete(`https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites/${id}`);
+    mockapiCard.onRemoveFavorites(id);
     setFavorites((prev) => prev.filter((favorites) => favorites.id !== id));
   };
   const onRemoveBlockItem = (id) => {
-    axios.delete(
-      `https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers/${id}`
-    );
+    mockapiCard.onRemoveBlockItem(id);
     setBlockItems((prev) => prev.filter((blockitems) => blockitems.id !== id));
   };
+
   return (
     <>
       <Header toggLeVisibility={toggLeVisibility} />
@@ -83,20 +74,24 @@ const ProfilePage = () => {
       <div className="card">
         <h1 className="containerTitle">My Profile</h1>
 
-       { isAuthenticated && (
-        <div className="d-if">
-        <img
-          className="profileimg"
-          width={100}
-          height={100}
-          src={user?.picture}
-          alt="picture"
-        />
-        <h1>{user?.email}</h1>
-       
+        <div>
+          <h2 className="profiletext">
+            {" "}
+            Name: {userProfile.first_name} {userProfile.last_name}
+          </h2>
+
+          <h2 className="profiletextsmall"> Email: {userProfile.email}</h2>
+
+          <h2 className="profiletextsmall"> Role: {userProfile.role}</h2>
         </div>
-        )}
-          
+        {/* < img 
+              className="mr-50 cu-p d-flex  wheelport d-inline"
+              width={25}
+              height={30}
+              src="/images/wheelp.svg"
+              alt="sad"
+            /> */}
+
         <div className="d-flex justify-between align-center"></div>
       </div>
       <div className="card">
@@ -107,12 +102,11 @@ const ProfilePage = () => {
             dense
             sx={{ width: "100%", maxWidth: 1500, bgcolor: "background.gray" }}
           >
-            {favorites.map((favorites) => {
-              
-              const labelId = `checkbox-list-secondary-label-${favorites}` ;
+            {favorites.map((favorites, index) => {
+              const labelId = `checkbox-list-secondary-label-${favorites}`;
               return (
                 <ListItem
-                  key={favorites.id}
+                  key={index}
                   secondaryAction={
                     <Checkbox
                       edge="end"
@@ -152,7 +146,6 @@ const ProfilePage = () => {
           </div>
         )}
       </div>
-     
 
       <div className="card">
         <h1 className="ml-30">Block Users</h1>
@@ -210,7 +203,7 @@ const ProfilePage = () => {
           <div className="d-flex flex-column"></div>
         </div>
       </div>
-      <Charts/>
+      <Charts />
     </>
   );
 };

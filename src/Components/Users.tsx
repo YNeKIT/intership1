@@ -2,32 +2,24 @@ import React, { useEffect, useState } from "react";
 import Modali from "../modalW/modali";
 import { nanoid } from "nanoid";
 import Pagination from "./Pagination";
-import axios from "axios";
 import Table from "./table";
 import { Button } from "@material-ui/core";
 import ProfilePage from "../Pages/ProfilePage";
 import { Link } from "react-router-dom";
+import axios from "../Api/axiosMockConfig";
+import { getItems, mockapiCard, onAddToItemPost } from "../Api/axiosMock";
 
 function Users() {
   const [isModalOpen, setModalState] = React.useState(false);
   const toggleModal = () => setModalState(!isModalOpen);
   const [query, setQuery] = useState("");
-
   const [contacts, setContacts] = React.useState<any[]>([]);
-
-  React.useEffect(() => {
-    axios
-      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts")
-      .then((res) => {
-        setContacts(res.data);
-      });
-
-    axios
-      .get("https://62ac57b7bd0e5d29af209f98.mockapi.io/Posts")
-      .then((res) => {
-        setFavorites(res.data);
-      });
-  }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [contactsPerPage, setContactsPerPage] = useState(10);
+  const [favorites, setFavorites] = useState<any[]>([]);
+  const [blockUsers, setBlockUsers] = useState<any[]>([]);
+  const [onAddItem, setItem] = useState<any[]>([]);
+  const [isFavorite, setIsFavorite] = React.useState(false);
 
   const [addFormData, setAddFormData] = useState({
     fullname: "",
@@ -67,14 +59,6 @@ function Users() {
     setContacts(newContacts);
   };
 
-  const onRemoveItem = (id) => {
-    axios.delete(`https://62ac57b7bd0e5d29af209f98.mockapi.io/contacts/${id}`);
-    setContacts((prev) => prev.filter((contact) => contact.id !== id));
-  };
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [contactsPerPage, setContactsPerPage] = useState(10);
-
   const indexOfLastContact = currentPage * contactsPerPage;
   const indexOfFirstContact = indexOfLastContact - contactsPerPage;
   const currentContacts = contacts.slice(
@@ -84,39 +68,44 @@ function Users() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const [isFavorite, setIsFavorite] = React.useState(false);
-
   const onClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
 
-  const [favorites, setFavorites] = useState<any[]>([]);
-
-  const onAddToFavorite = (contact) => {
-    axios
-      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/favorites", contact)
+  const onAddToFavorite = async (contact) => {
+    onAddToItemPost
+      .postFavorites(contact)
+      .then((response) => setFavorites(response.data.id))
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        //todo
+      });
+  };
+  const onAddToBlock = (contact) => {
+    onAddToItemPost
+      .postblockItem(contact)
       .then((response) => setFavorites(response.data.id));
   };
-  const [blockUsers, setBlockUsers] = useState<any[]>([]);
-  const onAddToBlock = (contact) => {
-    axios
-      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers", contact)
-      .then((response) => setBlockUsers(response.data.id));
+
+  const onRemoveItem = (id) => {
+    mockapiCard.onRemoveContact(id);
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
-  const [onAddItem, setItem] = useState<any[]>([]);
-
-  const onAddToItem = (contact) => {
-    axios
-      .post("https://62ac57b7bd0e5d29af209f98.mockapi.io/BlockUsers", contact)
-      .then((response) => setItem(response.data.id));
-   };
+  React.useEffect(() => {
+    ////////
+    getItems.getContacts().then((res) => {
+      setContacts(res.data);
+      console.log(res.data);
+    });
+  }, []);
 
   return (
     <>
       <div>
-        
-        <h1 className="pageName">Utilizatori</h1> 
+        <h1 className="pageName">Utilizatori</h1>
         <img
           className="searchinput"
           width={20}
@@ -191,7 +180,6 @@ function Users() {
         onClose={toggleModal}
         handleAddFormSubmit={handleAddFormSubmit}
         handleAddFormChange={handleAddFormChange}
-        onAddToItem={onAddToItem}
         currentContacts={currentContacts}
       />
     </>

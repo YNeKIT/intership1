@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./LogIn.scss";
 import FormInput from "../Components/FormInput";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import {Navigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../Api/axiosLensaConfig";
+import {postItemsLesna} from "../Api/axiosLensa"
+
 
 
 function LogIn() {
@@ -11,37 +12,8 @@ function LogIn() {
     email: "",
     password: "",
   });
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [navigate, setNavigate] = useState(false);
 
-
-  // const submit = async e => {
-  //   e.preventDefault();
-  
-  // const {data} = await axios.post ("https://api.lensa.devebs.net/dashboard/auth/login", {
-  //         email,
-  //         password,
-  //       })
-  //       .then((response) => {
-  //               console.log(response.data);
-  //               if (response.data.accessToken) {
-  //                 localStorage.setItem("token", JSON.stringify(response.data));
-  //               }
-        
-  //               return response.data;
-  //             });
-  //     axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
-      
-  //   setNavigate(true);
-  // }
-  // if (navigate) {
-  //   // return <Navigate to="/"/>;
-
-  // }
-
-
-
+  const navigate = useNavigate();
 
   const inputs = [
     {
@@ -74,42 +46,20 @@ function LogIn() {
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-
-  //       const onAddToItem = (values) => {
-  //       axios.post('https://api.lensa.devebs.net/dashboard/auth/login', {
-  //         // email: "ganenko.dmitrii@gmail.com",
-  //         // password: "Test123qwe"
-  //         values,
-
-  //       })
-  //       .then((response) => {
-  //         console.log(response.data);
-
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })}
-  //     console.log(values)
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
+  let [isAutentificated, setIsAutentificated] = useState(true);
 
   const onAddToItem = (email, password) => {
-    axios
-      .post("https://api.lensa.devebs.net/dashboard/auth/login", {
-        email,
-        password,
-      })
-      
-      .then((response) => {
-        console.log(response.data);
-        localStorage.setItem("token", JSON.stringify(response.data));
-        axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
-        return response.data;
-      });
-  };
+   postItemsLesna.postLogin(email,password).then((response) => {
+    setValues(response.data)
+    console.log(response.data)
+    localStorage.setItem("token", JSON.stringify(response.data));
+        if (localStorage.token) {
+          if (response.data) navigate("/");
+          console.log(response.data);
+          return response.data;
+   } })
 
+  };
 
   return (
     <div className="appd">
@@ -123,17 +73,17 @@ function LogIn() {
             onChange={onChange}
           />
         ))}
-         <button
+
+        <button
           className="buttond"
           onClick={() => onAddToItem(values.email, values.password)}
         >
           Submit
         </button>
-     
-        {/* <p className="paradb">
-          {" "}
-          Don't have an account? <Link to="/Register"> Register </Link>
-        </p> */}
+
+        <p className="paradb">
+          Don't have an account? <Link to="/"> Register </Link>
+        </p>
       </form>
     </div>
   );

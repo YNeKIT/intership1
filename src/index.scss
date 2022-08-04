@@ -267,7 +267,7 @@ blockquote {
   margin-right: 10px;
   margin-bottom: 60px;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-
+  display: inline-block;
   .profileimg {
     margin-left: 25px;
   }
@@ -370,3 +370,51 @@ blockquote {
     background: darken(#e25d5d, 5% ) !important ;
   }
 }
+.danger {
+  color:red;
+  width: 60%;
+}
+
+.ussernameheader {
+  margin-top: 5px;
+  
+  
+}
+.profiletext{
+  text-align: center;
+color:#190723;
+font-family: 'Russo One', sans-serif;
+font-size: 40px; 
+ 
+}
+.profiletextsmall{
+  text-align: center;
+  color:#190723;
+  font-family: 'Russo One', sans-serif;
+  font-size: 25px; 
+
+}
+
+
+.wheelport {
+
+  margin-left: 90%;
+  margin-bottom : 150px;
+}
+.wheelport:hover {
+  transform: rotate(360deg);
+}
+
+.wheelport {
+ 
+ 
+  transition: transform 250ms ease-in-out;
+  transform-origin: 50% 50%;
+  cursor: pointer;
+}
+
+.wheelport:hover {
+  transform: rotate(360deg);
+}
+
+

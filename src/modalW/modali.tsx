@@ -10,7 +10,6 @@ function Modali({
   onClose,
   handleAddFormChange,
   handleAddFormSubmit,
-  onAddToItem,
   currentContacts,
 }) {
   const outsideRef = React.useRef(null);
@@ -63,6 +62,20 @@ function Modali({
                 placeholder="Numele"
                 onChange={handleAddFormChange}
               />
+               <input
+                className="modinput"
+                required
+                name="fullname"
+                placeholder="Numele"
+                onChange={handleAddFormChange}
+              />
+               <input
+                className="modinput"
+                required
+                name="fullname"
+                placeholder="Numele"
+                onChange={handleAddFormChange}
+              />
               <input
                 className="modinput"
                 required
@@ -80,6 +93,7 @@ function Modali({
       </div>
     </div>
   ) : null;
+  
 }
 
 export default Modali;

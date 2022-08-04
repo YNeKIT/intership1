@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Loginpt from "./loginpt2";
 import Logoutptt from "./logoutptt";
 import Profile from "./ProfileHead";
+import "./Comp.modules.scss";
 interface isVisbleDiv {
   isVisible: boolean;
 }
@@ -14,7 +15,7 @@ const MenuDrawerWrapper = styled.div<isVisbleDiv>`
   height: 100%;
   position: fixed;
   top: 0px;
-  background-color: white;
+  background-color: #e2e4f2;
   z-index: 12;
   transform: translateX(${(props) => (props.isVisible ? 0 : "-100%")});
   transition: transform 0.3s easy-out;
@@ -24,7 +25,7 @@ const MenuDrawerOverlay = styled.div<isVisbleDiv>`
 position: fixed;
 widh: 100vw;
 height: 100%;
-background-color: black;
+background-color: blue;
 opacity: 0.3;
 z-index: 11;
 opacity: ${(props) => (props.isVisible ? 0.3 : 0)} 
@@ -73,9 +74,13 @@ const MenuIcon = styled.i`
   marfin-left: auto;
 `;
 
+
+
+
 const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
   <>
-    <MenuDrawerWrapper isVisible={isVisible}>
+    <MenuDrawerWrapper isVisible={isVisible} className="drawercolor">
+
       <MenuTab>
         <MenuIcon>
           <img
@@ -123,7 +128,7 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
               Utilizatori
             </li>
           </Link>
-          <Link to="Profile">
+          <Link to="/Profile">
             <li className="listmenu">
               <img
                 className="mr-10 mt-10"
@@ -137,7 +142,22 @@ const Drawer: React.FC<Props> = ({ isVisible, toggLeVisibility }) => (
           </Link>
 
           <Loginpt />
-          <Logoutptt />
+
+          <li className="listmenu" >
+          
+      <img
+        className="mr-10 mt-10"
+        width={20}
+        height={20}
+        src="/images/logout.svg"
+        alt="closetype"
+      />
+      <Link to="/LogIn" onClick={() => localStorage.clear()} >
+      Log Out
+      </Link>
+    </li>
+    
+          {/* <Logoutptt /> */}
 
           {/* <Link to="/">
             <li className="listmenu">

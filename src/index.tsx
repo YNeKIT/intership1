@@ -6,6 +6,8 @@ import App from "./App";
 import "./index.scss";
 import "./";
 import { Auth0Provider } from "@auth0/auth0-react";
+import axios from "axios";
+
 
 ReactDOM.render(
   <Auth0Provider
