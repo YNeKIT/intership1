@@ -1,11 +1,24 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Header from "../Components/Header";
+import Drawer from "../Components/Drawer";
+import styled from "styled-components";
+import React, { useState } from "react";
+import Users from "../Components/Users";
 
-// export interface IHomepageProps {};
+const Home: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-// const HomePage: React.FunctionComponent<IHomepageProps> = (props) => {
-//     return <div>
-//        <Link to="<p> Pagina principala </p>" />
-//         </div>;
-// };
-// export default HomePage;
+  const toggLeVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  return (
+    <>
+      <Header toggLeVisibility={toggLeVisibility} />
+      <Drawer isVisible={isVisible} toggLeVisibility={toggLeVisibility} />
+      <Users />
+    </>
+  );
+};
+
+export default Home;
